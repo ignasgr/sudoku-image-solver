@@ -40,7 +40,7 @@ The script looks for the image in `data/puzzles/` and the model in `models/` so 
 
 ## Identifying the Puzzle
 
-A sudoku puzzle can be thought of as a case of nested quadrilaterals, with 81 square cells contained within a greater square that is the puzzle's outside edge. Contouring can be used to identify such shapes, and heuristic rules can help deduce which shapes belong to puzzle. 
+A sudoku puzzle can be thought of as a case of nested quadrilaterals, with 81 square cells contained within a greater square that is the puzzle's outside edge. Contouring can be used to identify such shapes, and heuristic rules deduce which contours represent the puzzle. 
 
 The first phase of contouring intends to find the outer edge of the puzzle. Below, an approximation error of 5% is used for demonstration purposes. The script uses an error of 1% to reduce the number of puzzle edge candidates.
 
@@ -52,12 +52,12 @@ The first phase of contouring intends to find the outer edge of the puzzle. Belo
 Each candidate then undergoes a perspective transform, providing a top-down view of the contoured object. After the perspective transform is complete, the image is contoured again with the intent of finding 81 quadrilateral contours. 
 
 <p align="middle">
-  <img src="docs/readme_images/image12_pretransform.jpg" width="32%" hspace=5>
-  <img src="docs/readme_images/image12_posttransform.jpg" width="32%" hspace=5>
-  <img src="docs/readme_images/image12_contoured2.jpg" width="32%" hspace=5>
+  <img src="docs/readme_images/image12_pretransform.jpg" width="31%" hspace=3>
+  <img src="docs/readme_images/image12_posttransform.jpg" width="31%" hspace=3>
+  <img src="docs/readme_images/image12_contoured2.jpg" width="31%" hspace=3>
 </p>
 
-While the above example is fairly straight forward given the image was originally taken from a top-down view, the below example demonstrates the scripts ability to handle cases where the image is taken at an angle.
+While perspect transform for the above example is fairly straight forward given the image was originally taken from a top-down view, the below example demonstrates the script's ability to handle cases where the image is taken at an angle.
 
 <p align="middle">
   <img src="docs/readme_images/image4_pretransform.jpg" width="45%" hspace=10>
