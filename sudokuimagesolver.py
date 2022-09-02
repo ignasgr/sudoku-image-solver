@@ -84,7 +84,6 @@ if sudoku_grid is None:
     print("Sudoku grid not found")
     exit()
 
-
 # have to know cell order to transcribe to matrix for solving
 sorted_cells = imageproc.utils.sort_cells(cell_contours)
 
