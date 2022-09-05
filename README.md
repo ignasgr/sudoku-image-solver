@@ -48,7 +48,7 @@ Each candidate undergoes a perspective transform, providing a top-down view of t
 </p>
 <br/>
 
-While perspect transform for the above example is fairly straight forward given the image was originally taken from a top-down view, the below example demonstrates the script's ability to handle cases where the image is taken at an angle.
+Given the image in the above example was originally taken from a top-down view, the perspective transform seems trivial. The below example demonstrates the script's ability to handle cases where the image is taken at an angle.
 
 <br/>
 <p align="middle">
