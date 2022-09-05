@@ -1,5 +1,5 @@
 # Sudoku Image Solver
-This project is about solving a sudoku puzzle contained in an image. The puzzle is identifed using fairly simple image processing techniques and heuristic rules, starting values are transcribed using a CNN, and solved with linear programming.
+This project is about solving a sudoku puzzle contained in an image. The puzzle is identifed using fairly simple image processing techniques and heuristic rules, a CNN is used to identify the digits contained within the cells, and a linear programming approach is taken to solve the puzzle.
 
 <br/>
 <p align="middle">
@@ -9,7 +9,7 @@ This project is about solving a sudoku puzzle contained in an image. The puzzle 
 <br/>
 
 # Current Project Status
-The Sudoku Image Solver is viable under generally favorable conditions. The puzzle in the image should be flat, with the picture taken from a reasonable angle. The project may see some updates in the future.
+The Sudoku Image Solver is viable under generally favorable conditions. The puzzle in the image should be flat, with the picture taken from a reasonable angle. Improvements can still be made to the image processing (especially thresholding), and the digit classifier.
 <br/>
 <br/>
 
@@ -29,7 +29,7 @@ The script looks for the image in `data/puzzles/` and the model in `models/` so 
 
 A sudoku puzzle can be thought of as a case of nested quadrilaterals, with 81 square cells contained within a greater square that is the puzzle's outside edge. Contouring can be used to identify such shapes, and heuristic rules deduce which hierarchy of quadrilaterals represents the puzzle. 
 
-The first phase of contouring intends to find the outer edge of the puzzle. Below, an approximation error of 5% is used for demonstration purposes. The script uses an error of 1% to reduce the number of puzzle edge candidates.
+The first phase of contouring intends to find the outer edge of the puzzle. Below, an approximation error of 5% is used for demonstration purposes, however, the script uses an error of 1% to reduce the number of puzzle edge candidates.
 
 <br/>
 <p align="middle">
@@ -38,7 +38,7 @@ The first phase of contouring intends to find the outer edge of the puzzle. Belo
 </p>
 <br/>
 
-Each candidate then undergoes a perspective transform, providing a top-down view of the contoured object. After the perspective transform is complete, the image is contoured again with the intent of finding 81 quadrilateral contours (cells). If 81 cells are found, the puzzle is assumed discovered and digit recognition can be applied.
+Each candidate undergoes a perspective transform, providing a top-down view of the contoured object. After the perspective transform is complete, the image is contoured again with the intent of finding 81 quadrilateral contours (cells). If 81 cells are found, the puzzle is assumed discovered and digit recognition can be applied.
 
 <br/>
 <p align="middle">
@@ -67,7 +67,7 @@ Digit recognition is done through a simple convolutional neural network. The dat
 
 A sudoku puzzle can be treated as an optimization problem and solved through integer programming. As such, the decision variables, constraints, and the objective function must be defined.
 
-In this formulation, there are 729 binary (0 or 1) decision variables. These variables essentially form a cube: a 9x9 grid that's 9 layers deep. The first two dimensions represent any particular sudoku cell, while the layers represent the values that the cell can take on. More precisely, the index of the layer that contains a 1 is equal to the value in that cell. For example, if a cell contains a 3, then the third layer will contain a 1 and with every other layer will contain a 0. 
+In this formulation, there are 729 binary (0 or 1) decision variables. These variables form a cube: a 9x9 grid that's 9 layers deep. The first two dimensions are used to represent any particular sudoku cell, while the layers represent the values that a cell can take on. More precisely, the value in the cell is equal to the index of the layer that contains a 1. For example, if a cell contains a 3, then the third layer will contain a 1 and every other layer will contain a 0. 
 
 <br/>
 <p align="middle">
@@ -75,7 +75,7 @@ In this formulation, there are 729 binary (0 or 1) decision variables. These var
 </p>
 <br/>
 
-There are five constrains. The first three correspond to the known rules of the game, the last two are a consequence of our formulation. They are as follows:
+There are five constrains. The first three correspond to the known rules of the puzzle, the last two are a consequence of our formulation. They are as follows:
 
 1. Each row must contain values 1-9, without repitition
 2. Each column must contain values of 1-9, without repitition
