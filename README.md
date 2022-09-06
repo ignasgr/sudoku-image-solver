@@ -9,7 +9,7 @@ This project is about solving a sudoku puzzle contained in an image. The puzzle 
 <br/>
 
 # Current Project Status
-The Sudoku Image Solver is viable under generally favorable conditions. The puzzle in the image should be flat, with the picture taken from a reasonable angle. Improvements can still be made to the image processing (especially thresholding), and the digit classifier.
+The Sudoku Image Solver is viable under generally favorable conditions. The puzzle in the image should be flat, with the picture taken from a reasonable angle. Improvements can still be made to the image processing (especially thresholding).
 <br/>
 <br/>
 
@@ -87,4 +87,4 @@ There are five constrains. The first three correspond to the known rules of the 
 4. Each cell can only have one number
 5. Starting values cannot change
 
-The objective function is easy: there is none! This because there is there is no solution that is better than any other solution. 
+The objective function is easy: there is none! This because there is there is no solution that is better than any other solution.
