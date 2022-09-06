@@ -59,8 +59,12 @@ Given the image in the above example was originally taken from a top-down view, 
 
 ## Digit Recognition
 
-Digit recognition is done through a simple convolutional neural network. The data used to train the network is the Typeface MNIST dataset, with augmentations. Namely, the 0 class was replaced with blank cells with and without noise.
+Digit recognition is done through a simple convolutional neural network. The data used to train the network is the Typeface MNIST dataset. The 0 class was replaced with blank cells with and without noise. Originally, MNIST data set was used but the performnace wasn't ideal. No hyperparameter tuning was used given the model achieved an accuracy score of 99%.
 
+<br/>
+<p align="middle">
+  <img src="docs/readme_images/digitnet_architecture.png" width="40%">
+</p>
 <br/>
 
 ## Solving the Puzzle
