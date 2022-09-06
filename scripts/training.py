@@ -51,17 +51,17 @@ y_test = to_categorical(y_test, N_CLASSES)
 model = Sequential(
     [
         InputLayer(input_shape=INPUT_SHAPE),
-        Conv2D(32, kernel_size=(3, 3), activation="relu"),
-        MaxPooling2D(pool_size=(2, 2)),
-        Conv2D(64, kernel_size=(3, 3), activation="relu"),
-        MaxPooling2D(pool_size=(2, 2)),
+        Conv2D(filters=32, kernel_size=(3, 3), activation="relu"),
+        MaxPooling2D(),
+        Conv2D(filters=64, kernel_size=(3, 3), activation="relu"),
+        MaxPooling2D(),
         Flatten(),
         Dropout(rate=0.5),
         Dense(units=N_CLASSES, activation="softmax"),
     ]
 )
 
-# creating model and fitting
+# fitting the model
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=EPOCHS, validation_split=0.3)
 
