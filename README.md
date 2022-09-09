@@ -9,7 +9,7 @@ This project is about solving a sudoku puzzle contained in an image. The puzzle 
 <br/>
 
 # Current Project Status
-The Sudoku Image Solver is viable under generally favorable conditions. The puzzle in the image should be flat, with the picture taken from a reasonable angle. Improvements can still be made to the image processing (especially thresholding).
+The Sudoku Image Solver is viable under generally favorable conditions. The puzzle in the image should be flat, with the picture taken from a reasonable angle. Improvements can still be made to the image processing (i.e. thresholding). In the future perhaps this project will be moved to a cloud provider with an endpoint.
 <br/>
 <br/>
 
