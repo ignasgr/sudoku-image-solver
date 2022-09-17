@@ -79,7 +79,7 @@ In this formulation, there are 729 binary (0 or 1) decision variables. These var
 </p>
 <br/>
 
-There are five constrains. The first three correspond to the known rules of the puzzle, the last two are a consequence of our formulation. They are as follows:
+There are five constraints. The first three correspond to the known rules of the puzzle, the last two are a consequence of our formulation. They are as follows:
 
 1. Each row must contain values 1-9, without repitition
 2. Each column must contain values of 1-9, without repitition
@@ -87,4 +87,23 @@ There are five constrains. The first three correspond to the known rules of the 
 4. Each cell can only have one number
 5. Starting values cannot change
 
-The objective function is easy: there is none! This because there is there is no solution that is better than any other solution.
+Given the choice of decisions variables, the first constraint is met when the sum across all the columns, for every row and layer is equal to 1. More formally,
+
+$$
+\sum_{j=1}^9 v_j = 1 \;\;\;\; \forall \; i, k
+$$
+
+Where $v_j$ is the value of the decision variable, $j$ is the column index, $i$ is row index, $k$ is the layer index. Similarily for the second constraint, summing over all rows for every columna and layer,
+
+$$
+\sum_{i=1}^9 v_i = 1 \;\;\;\;  \forall \; j, k
+$$
+
+The other constraints are analogous.
+
+The final piece is the object function. However, in this case, there isn't one because there is no solution that is necessarily better than any other solution. In fact, a properly formulated puzzle should only have a single solution.
+<br/>
+<br/>
+
+# References
+https://www.kaggle.com/datasets/7a2a5621ee8c66c1aba046f9810a79aa27aafdbbe5d6a475b861d2ba8552d1fc
