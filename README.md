@@ -90,13 +90,13 @@ There are five constraints. The first three correspond to the known rules of the
 Given the choice of decisions variables, the first constraint is met when the sum across all the columns, for every row and layer is equal to 1. More formally,
 
 $$
-\sum_{j=1}^9 v_j = 1 \;\;\;\; \forall \; i, k
+\sum_{j=1}^9 v_j = 1 \quad \forall i, k
 $$
 
 Where $v_j$ is the value of the decision variable, $j$ is the column index, $i$ is row index, $k$ is the layer index. Similarily for the second constraint, summing over all rows for every columna and layer,
 
 $$
-\sum_{i=1}^9 v_i = 1 \;\;\;\;  \forall \; j, k
+\sum_{i=1}^9 v_i = 1 \quad  \forall j, k
 $$
 
 The other constraints are analogous.
